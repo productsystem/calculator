@@ -1,6 +1,7 @@
 html{
     text-align: center;
     font-family: monospace;
+    overflow: hidden;
 }
 
 .header{
@@ -44,9 +45,10 @@ html{
 }
 
 button{
-    margin:1px;
+    margin: 1px;
     border-radius: 5%;
     font-size: 2em;
+    color:black;
 }
 
 #zero{

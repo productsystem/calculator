@@ -18,7 +18,11 @@ function handleNumberClick(number) {
 
 function handleOperatorClick(op) {
     operator = op;
-    if (currentInput !== '') {
+    if (currentInput === '' && op === '-') {
+        currentInput = '-';
+        updateDisplay(currentInput);
+    }
+    else if (currentInput !== '') {
         if (previousInput === '') {
             previousInput = currentInput;
         } else {
@@ -96,6 +100,28 @@ document.querySelector('.decimal').addEventListener('click', () => {
     if (!currentInput.includes('.')) {
         currentInput += '.';
         updateDisplay(currentInput);
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (!isNaN(key)) {
+        handleNumberClick(key);
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        handleOperatorClick(key);
+    } else if (key === 'Enter' || key === '=') {
+        event.preventDefault();
+        calculate();
+    } else if (key === 'Backspace') {
+        handleClear();
+    } else if (key === '%') {
+        handlePercent();
+    } else if (key === '.') {
+        handleDecimal();
+    } else if (key === 'Escape') {
+        handleClear();
+    } else if (key === 's' || key === 'S') {
+        handleSign();
     }
 });
 
