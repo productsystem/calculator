@@ -7,16 +7,17 @@ html{
     text-align: center;
     font-size: xx-large;
     font-weight: bolder;
+    background-color: burlywood;
 }
 
 .main{
     display:flex;
-    min-height: 95vh;
+    min-height: 70vh;
     background-color: beige;
     justify-content: center;
     align-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
 
 }
 
@@ -50,4 +51,11 @@ button{
 
 #zero{
     grid-column: span 2;
+}
+
+.footer{
+    background-color: burlywood;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
 }
