@@ -1,20 +1,14 @@
-// scripts.js
-
-// Variables to store the current input, operator, and the result
 let currentInput = '';
 let operator = '';
 let previousInput = '';
 let result = 0;
 
-// Selecting the display element
 const display = document.querySelector('.display');
 
-// Function to update the display
 function updateDisplay(value) {
     display.textContent = value;
 }
 
-// Function to handle number button clicks
 function handleNumberClick(number) {
     if (currentInput.length < 12) {
         currentInput += number;
@@ -22,7 +16,6 @@ function handleNumberClick(number) {
     }
 }
 
-// Function to handle operator button clicks
 function handleOperatorClick(op) {
     operator = op;
     if (currentInput !== '') {
@@ -36,7 +29,6 @@ function handleOperatorClick(op) {
     }
 }
 
-// Function to handle the calculation
 function calculate() {
     if (previousInput !== '' && currentInput !== '') {
         switch (operator) {
@@ -59,7 +51,6 @@ function calculate() {
     }
 }
 
-// Event listener for number buttons
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -67,7 +58,6 @@ numberButtons.forEach(button => {
     });
 });
 
-// Event listener for operator buttons
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -75,7 +65,6 @@ operatorButtons.forEach(button => {
     });
 });
 
-// Event listener for the clear button
 document.querySelector('.clear').addEventListener('click', () => {
     currentInput = '';
     previousInput = '';
@@ -84,13 +73,11 @@ document.querySelector('.clear').addEventListener('click', () => {
     updateDisplay('0');
 });
 
-// Event listener for the equals button
 document.querySelector('.equals').addEventListener('click', () => {
     calculate();
     operator = '';
 });
 
-// Event listener for the sign button
 document.querySelector('.sign').addEventListener('click', () => {
     if (currentInput !== '') {
         currentInput = (parseFloat(currentInput) * -1).toString();
@@ -98,7 +85,6 @@ document.querySelector('.sign').addEventListener('click', () => {
     }
 });
 
-// Event listener for the percent button
 document.querySelector('.percent').addEventListener('click', () => {
     if (currentInput !== '') {
         currentInput = (parseFloat(currentInput) / 100).toString();
@@ -106,7 +92,6 @@ document.querySelector('.percent').addEventListener('click', () => {
     }
 });
 
-// Event listener for the decimal button
 document.querySelector('.decimal').addEventListener('click', () => {
     if (!currentInput.includes('.')) {
         currentInput += '.';
@@ -114,5 +99,4 @@ document.querySelector('.decimal').addEventListener('click', () => {
     }
 });
 
-// Initial display value
 updateDisplay('0');
