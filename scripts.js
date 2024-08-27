@@ -17,21 +17,22 @@ function handleNumberClick(number) {
 }
 
 function handleOperatorClick(op) {
-    operator = op;
     if (currentInput === '' && op === '-') {
         currentInput = '-';
         updateDisplay(currentInput);
     }
     else if (currentInput !== '') {
-        if (previousInput === '') {
-            previousInput = currentInput;
-        } else {
+        if (previousInput !== '') {
             calculate();
+        } else {
+            previousInput = currentInput;
         }
-        
-        currentInput = '';
+        currentInput = ''; 
     }
+    
+    operator = op;
 }
+    
 
 function calculate() {
     if (previousInput !== '' && currentInput !== '') {
